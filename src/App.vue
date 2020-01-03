@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <section class="hero is-primary is-medium">
+      <router-view></router-view>
+      <div class="hero-foot">
+        <div class="columns is-mobile">
+          <Movie v-for="movieChoice in movieChoices" :movieChoice="movieChoice" :key="movieChoices.indexOf(movieChoice)"></Movie>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Movie from './components/MovieSection'
+import movieChoices from './data/movie'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+    name: 'app',
+    data() {
+        return {
+            movieChoices
+        }
+    },
+    components: {
+        Movie : Movie
+    },
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" src="./assets/styles/app.scss">
+
 </style>
