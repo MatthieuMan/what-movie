@@ -1,6 +1,7 @@
 {
   "name": "what-movie",
   "version": "0.1.0",
+  "author": "Matthieu Mandoula",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
